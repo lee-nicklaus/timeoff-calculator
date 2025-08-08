@@ -1,0 +1,208 @@
+/* --- General Styles --- */
+:root {
+    --primary-color: #4a90e2;
+    --overtime-color: #d0021b;
+    --off-in-lieu-color: #417505;
+    --background-color: #f4f7f6;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* --- Main Container --- */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 20px 30px;
+}
+
+header h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Form Styles --- */
+#entry-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 25px;
+}
+
+.form-control {
+    flex: 1 1 150px; /* Flex properties for responsive layout */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control label {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+#entry-form input,
+#entry-form select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#entry-form input:focus,
+#entry-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+#entry-form button[type="submit"] {
+    flex: 1 1 100%; /* Take full width in the next row */
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#entry-form button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* --- Entry List --- */
+#entry-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+#entry-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+#entry-list li:last-child {
+    border-bottom: none;
+}
+
+#entry-list li:hover {
+    background-color: #f9f9f9;
+}
+
+#entry-list li.overtime {
+    border-left: 4px solid var(--overtime-color);
+}
+
+#entry-list li.off-in-lieu {
+    border-left: 4px solid var(--off-in-lieu-color);
+}
+
+.entry-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.entry-type {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.overtime .entry-type { color: var(--overtime-color); }
+.off-in-lieu .entry-type { color: var(--off-in-lieu-color); }
+
+.entry-date, .entry-duration {
+    color: #666;
+}
+
+.entry-actions button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    color: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.entry-actions button:hover {
+    background-color: #f0f0f0;
+    border-color: #aaa;
+}
+
+.entry-actions .delete-btn:hover {
+    background-color: var(--overtime-color);
+    color: white;
+    border-color: var(--overtime-color);
+}
+
+.no-entries {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+/* --- Editable State --- */
+.editable {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+.editable input, .editable select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.entry-actions .save-btn {
+    background-color: var(--off-in-lieu-color);
+    color: white;
+    border-color: var(--off-in-lieu-color);
+}
+
+/* --- Summary --- */
+#summary {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    text-align: center;
+}
+
+#summary h2 {
+    margin-bottom: 15px;
+}
+
+#summary p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+#summary span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
